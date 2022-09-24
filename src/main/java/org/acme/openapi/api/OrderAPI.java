@@ -14,26 +14,19 @@ import javax.ws.rs.core.MediaType;
 import org.acme.openapi.model.Order;
 
 @Path("/orders")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class OrderAPI {
 
     private Set<Order> orders = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public Set<Order> getOrders(){
         return orders;
     }
 
-/*     @POST
-    public Set<Order> addOrder(@RestQuery String name, @RestQuery Integer price){
-        System.out.println("This is the name: " + name + " and this is the price: " + price);
-        orders.add(new Order(name, price));
-        System.out.println()
-        return orders;
-    } */
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Set<Order> addOrder(@Valid Order body){
-        System.out.println(body);
         orders.add(body);
         return orders; 
     }    

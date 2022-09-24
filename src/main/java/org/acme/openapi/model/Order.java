@@ -10,17 +10,18 @@ public class Order {
     public Order() {
     }
 
-    public Order(String order_id, Float order_total){
+    public Order(String order_id, Float order_price, Boolean order_paid_flag){
         this.order_id = order_id;
-        this.order_total = order_total;
+        this.order_price = order_price;
+        this.order_paid_flag = false;
     }
 
     @JsonProperty("order_paid")
     private Boolean order_paid_flag;
 
-    @JsonProperty("order_total")
+    @JsonProperty("order_price")
     @Positive(message="Price should be a positive value")
-    private Float order_total;
+    private Float order_price;
 
     @JsonProperty("order_id")
     @NotBlank(message="ID of the order cannot be negative")
@@ -32,10 +33,18 @@ public class Order {
     public void setPrice(Float order_total) {
         this.order_total = order_total;
     }
-    public String getName() {
+    public String getId() {
         return order_id;
     }
-    public void setName(String order_id) {
+    public void setId(String order_id) {
         this.order_id = order_id;
+    }
+
+    public Boolean getStatus() {
+        return order_paid_flag;
+    }
+
+    public void setStatus(Boolean order_paid_flag) {
+        this.order_paid_flag;
     }
 }
