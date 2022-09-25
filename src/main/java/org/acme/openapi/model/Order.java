@@ -3,7 +3,6 @@ package org.acme.openapi.model;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Order {
