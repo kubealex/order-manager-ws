@@ -27,10 +27,10 @@ public class Order {
     private String order_id; 
 
     public Float getPrice() {
-        return order_total;
+        return order_price;
     }
-    public void setPrice(Float order_total) {
-        this.order_total = order_total;
+    public void setPrice(Float order_price) {
+        this.order_price = order_price;
     }
     public String getId() {
         return order_id;
@@ -44,6 +44,6 @@ public class Order {
     }
 
     public void setStatus(Boolean order_paid_flag) {
-        this.order_paid_flag;
+        this.order_paid_flag = order_paid_flag;
     }
 }
